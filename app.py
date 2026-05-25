@@ -67,45 +67,43 @@ def login():
         margin-top:-8px;
     }
 
-    .login-card {
-        max-width:520px;
-        margin:auto;
-        background:rgba(15,23,42,0.92);
-        border:1px solid rgba(220,38,38,0.45);
-        border-radius:26px;
-        padding:34px;
-        box-shadow:0 0 45px rgba(220,38,38,0.30);
-        animation:fadeIn .7s ease-in-out;
-    }
+   
 
-    .login-title {
-        color:white;
-        text-align:center;
-        font-size:34px;
-        font-weight:900;
-    }
+    
 
-    .login-small {
-        color:#9ca3af;
-        text-align:center;
-        margin-bottom:25px;
-    }
-
-    @keyframes fadeIn {
-        from {opacity:0; transform:translateY(20px);}
-        to {opacity:1; transform:translateY(0);}
-    }
+    
     </style>
-
     <div class="login-brand">
         <h1>SyA</h1>
         <h2>DOMINICANA</h2>
     </div>
 
-    <div class="login-card">
-        <div class="login-title">Iniciar sesión</div>
-        <div class="login-small">Sistema profesional de distribución de vinos</div>
+    <div class="login-bg"></div>
+
+    <style>
+
+    .login-bg{
+        background-image: url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        width:100%;
+        height:500px;
+
+        border-radius:25px;
+
+        margin-top:20px;
+        margin-bottom:30px;
+
+        border:1px solid rgba(255,0,0,0.35);
+
+        box-shadow:0 0 40px rgba(255,0,0,0.20);
+        }
+
+    </style>
     """, unsafe_allow_html=True)
+   
 
     
 
@@ -158,21 +156,7 @@ def login():
         st.session_state["modo_registro"] = True
         st.rerun()
 
-    st.markdown("""
-    <div class="login-wrapper">
-
-            <div class="login-title">
-                Iniciar sesión
-            </div>
-
-            <div class="login-sub">
-                Sistema profesional de distribución de vinos
-            </div>
-
-        </div>
-
-    </div>
-    """, unsafe_allow_html=True)
+   
     
 
 
