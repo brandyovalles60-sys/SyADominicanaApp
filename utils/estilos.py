@@ -154,6 +154,87 @@ section[data-testid="stSidebar"] label {
         transform: translateY(0);
     }
 }
+                
 
+
+    /* LOGIN PREMIUM */
+
+.login-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a, #111827, #450a0a);
+    border: 1px solid rgba(239, 68, 68, 0.45);
+    border-radius: 28px;
+    padding: 55px 35px;
+    text-align: center;
+    box-shadow:
+        0 0 35px rgba(220, 38, 38, 0.25),
+        inset 0 0 25px rgba(255, 255, 255, 0.03);
+    animation: loginFloat 4s ease-in-out infinite;
+}
+
+.login-card::before {
+    content: "";
+    position: absolute;
+    width: 220%;
+    height: 220%;
+    top: -60%;
+    left: -60%;
+    background: conic-gradient(
+        from 180deg,
+        transparent,
+        rgba(239, 68, 68, 0.35),
+        transparent,
+        rgba(255, 255, 255, 0.12),
+        transparent
+    );
+    animation: rotateGlow 8s linear infinite;
+}
+
+.login-card::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #0f172a, #111827, #1f0303);
+    z-index: 1;
+}
+
+.login-card h1,
+.login-card p {
+    position: relative;
+    z-index: 2;
+}
+
+.login-card h1 {
+    color: white;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    color: #cbd5e1;
+    font-size: 17px;
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loginFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
     </style>
-    """, unsafe_allow_html=True)
+ """, unsafe_allow_html=True)
+

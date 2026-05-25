@@ -159,7 +159,10 @@ def login():
         st.rerun()
 
     st.markdown("""
-        </div>
+    </div>
+        div class="login-card">
+        <h1>Iniciar sesión</h1>
+        <p>Sistema profesional de distribución de vinos</p>
     </div>
     """, unsafe_allow_html=True)
     
