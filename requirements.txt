@@ -7,3 +7,4 @@ pydeck
 streamlit-js-eval
 bcrypt
 openpyxl
+geopy
