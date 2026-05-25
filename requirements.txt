@@ -8,3 +8,4 @@ streamlit-js-eval
 bcrypt
 openpyxl
 geopy
+reportlab
