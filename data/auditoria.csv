@@ -1,0 +1,4 @@
+Fecha,Usuario,Rol,Modulo,Accion,Detalle
+2026-05-25 15:27:36,Admin4,admin,Órdenes,Crear orden,Cliente: cliente prueba1 | Vino: Descariado | Cantidad: 1
+2026-05-25 15:28:36,Admin4,admin,Almacén,Confirmar salida,Cliente: cliente prueba1 | Vino: Descariado | Cantidad: 1
+2026-05-25 15:28:52,Admin4,admin,Distribución,Pedido entregado,Cliente: cliente prueba1 | Vino: Descariado | Cantidad: 1

@@ -1,0 +1,3 @@
+Cliente,Telefono,Vino,Cantidad,Direccion_entrega,Estado,Vendedor,Tipo_documento,PDF_documento,PDF_salida_almacen,Preparado_por,Entregado_por
+Brandy rr,8292287794,Descariado,2,Calle El Sol,Entregado,,,,,,
+cliente prueba1,8292287794,Descariado,1,calle el sol ,Entregado,Admin4,Factura,,documentos/salidas_almacen\salida_cliente_prueba1_Descariado.pdf,Admin4,Admin4

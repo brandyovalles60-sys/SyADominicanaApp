@@ -1,0 +1,71 @@
+IDIOMAS = {
+
+    "Español": {
+
+        "dashboard": "Dashboard",
+        "clientes": "Clientes",
+        "inventario": "Inventario",
+        "ordenes": "Órdenes",
+        "distribucion": "Distribución",
+        "degustacion": "Degustación",
+        "finanzas": "Finanzas",
+        "documentos": "Documentos",
+        "configuracion": "Configuración",
+        "calendario": "Calendario",
+        "bloc": "Bloc Diario",
+        "cerrar": "Cerrar sesión",
+
+    },
+
+    "English": {
+
+        "dashboard": "Dashboard",
+        "clientes": "Clients",
+        "inventario": "Inventory",
+        "ordenes": "Orders",
+        "distribucion": "Distribution",
+        "degustacion": "Wine tasting",
+        "finanzas": "Finance",
+        "documentos": "Documents",
+        "configuracion": "Settings",
+        "calendario": "Calendar",
+        "bloc": "Daily Notes",
+        "cerrar": "Logout",
+
+    },
+
+    "Français": {
+
+        "dashboard": "Tableau de bord",
+        "clientes": "Clients",
+        "inventario": "Inventaire",
+        "ordenes": "Commandes",
+        "distribucion": "Distribution",
+        "degustacion": "Dégustation",
+        "finanzas": "Finances",
+        "documentos": "Documents",
+        "configuracion": "Configuration",
+        "calendario": "Calendrier",
+        "bloc": "Bloc-notes",
+        "cerrar": "Déconnexion",
+
+    },
+
+    "Italiano": {
+
+        "dashboard": "Dashboard",
+        "clientes": "Clienti",
+        "inventario": "Inventario",
+        "ordenes": "Ordini",
+        "distribucion": "Distribuzione",
+        "degustacion": "Degustazione",
+        "finanzas": "Finanza",
+        "documentos": "Documenti",
+        "configuracion": "Configurazione",
+        "calendario": "Calendario",
+        "bloc": "Blocco Note",
+        "cerrar": "Disconnettersi",
+
+    }
+
+}
