@@ -161,8 +161,6 @@ def login():
     st.markdown("""
     <div class="login-wrapper">
 
-        <div class="login-card">
-
             <div class="login-title">
                 Iniciar sesión
             </div>
