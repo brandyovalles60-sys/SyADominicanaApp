@@ -88,6 +88,15 @@ def login():
         background-position: center;
         background-repeat: no-repeat;
 
+        width: 100%;
+        height: 100vh;
+
+        border-radius: 0;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+
+
         width:100%;
         height:500px;
 
