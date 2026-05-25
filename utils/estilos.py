@@ -235,6 +235,91 @@ section[data-testid="stSidebar"] label {
         transform: translateY(-8px);
     }
 }
+                
+
+
+                
+/* LOGIN PREMIUM CON IMAGEN */
+
+.login-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.82)
+        ),
+        url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login_bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: zoomBackground 18s ease-in-out infinite alternate;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* efecto movimiento */
+@keyframes zoomBackground {
+    from {
+        background-size: 100%;
+    }
+    to {
+        background-size: 110%;
+    }
+}
+
+/* tarjeta login */
+
+.login-card {
+    width: 520px;
+
+    backdrop-filter: blur(18px);
+
+    background: rgba(10,10,15,0.68);
+
+    border: 1px solid rgba(255,0,0,0.25);
+
+    border-radius: 30px;
+
+    padding: 50px;
+
+    box-shadow:
+        0 0 50px rgba(255,0,0,0.20),
+        inset 0 0 30px rgba(255,255,255,0.02);
+
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%,100%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+}
+
+.login-title {
+    color: white;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.login-sub {
+    text-align: center;
+    color: #cbd5e1;
+    margin-bottom: 35px;
+    font-size: 17px;
+}
     </style>
  """, unsafe_allow_html=True)
 
