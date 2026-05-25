@@ -95,20 +95,7 @@ def login():
         margin: 0;
         border: none;
         box-shadow: none;
-
-
-        width:100%;
-        height:500px;
-
-        border-radius:25px;
-
-        margin-top:20px;
-        margin-bottom:30px;
-
-        border:1px solid rgba(255,0,0,0.35);
-
-        box-shadow:0 0 40px rgba(255,0,0,0.20);
-        }
+    }
 
     </style>
     """, unsafe_allow_html=True)
