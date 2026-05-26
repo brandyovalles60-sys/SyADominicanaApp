@@ -44,97 +44,93 @@ def login():
     header {visibility:hidden;}
 
     .block-container {
-        padding-top: 0 !important;
-        max-width: 720px !important;
+        max-width: 520px !important;
+        padding-top: 8vh !important;
     }
 
     .stApp {
         background-image:
-            linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.78)),
+            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.78)),
             url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
 
-    .login-panel {
-        max-width: 520px;
-        margin: 10vh auto 25px auto;
-        padding: 32px;
+    /* TODO EL LOGIN COMO UN SOLO BLOQUE */
+    div[data-testid="stVerticalBlock"] {
+        background: rgba(5, 8, 15, 0.78);
+        border: 1px solid rgba(255, 0, 0, 0.28);
         border-radius: 28px;
-        background: rgba(5, 8, 15, 0.82);
-        border: 1px solid rgba(160, 20, 20, 0.45);
-        box-shadow: 0 0 45px rgba(160, 20, 20, 0.28);
+        padding: 35px 40px;
+        box-shadow: 0 0 45px rgba(220, 38, 38, 0.30);
         backdrop-filter: blur(14px);
+    }
+
+    /* LOGO */
+    .login-logo {
         text-align: center;
+        margin-bottom: 18px;
     }
 
     .login-logo img {
-        width: 170px;
-        margin-bottom: 22px;
-        filter: drop-shadow(0 0 18px rgba(180,0,0,0.45));
-        animation: logoFloat 4s ease-in-out infinite;
+        width: 165px;
+        filter: drop-shadow(0 0 16px rgba(220,38,38,.45));
     }
 
-    @keyframes logoFloat {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
-    }
-
+    /* TEXTO */
     .login-title {
+        text-align: center;
         color: white;
-        font-size: 34px;
+        font-size: 36px;
         font-weight: 900;
-        margin-bottom: 6px;
+        margin-bottom: 5px;
     }
 
     .login-small {
+        text-align: center;
         color: #d1d5db;
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 25px;
     }
 
-    div[data-testid="stTextInput"] {
-        max-width: 520px;
-        margin: auto;
-    }
-
+    /* INPUTS */
     div[data-testid="stTextInput"] input {
-        background: rgba(8, 12, 20, 0.88) !important;
-        border: 1px solid rgba(120, 120, 140, 0.35) !important;
+        background: rgba(10, 15, 25, 0.92) !important;
+        border: 1px solid rgba(255,255,255,0.18) !important;
         border-radius: 14px !important;
         color: white !important;
         height: 48px !important;
     }
 
-    .stButton {
-        max-width: 520px;
-        margin: auto;
+    div[data-testid="stTextInput"] input:focus {
+        border-color: rgba(220,38,38,0.85) !important;
+        box-shadow: 0 0 14px rgba(220,38,38,0.35) !important;
     }
 
+    /* BOTONES */
     .stButton > button {
-        background: rgba(8, 12, 20, 0.88) !important;
+        background: rgba(10, 15, 25, 0.92) !important;
         color: white !important;
-        border: 1px solid rgba(180, 40, 40, 0.45) !important;
+        border: 1px solid rgba(220,38,38,0.42) !important;
         border-radius: 14px !important;
         height: 46px !important;
         font-weight: 800 !important;
-        transition: all .25s ease-in-out;
     }
 
     .stButton > button:hover {
-        background: rgba(90, 10, 10, 0.92) !important;
+        background: linear-gradient(135deg, #330000, #7f1d1d) !important;
         transform: translateY(-2px);
-        box-shadow: 0 0 22px rgba(180, 40, 40, 0.35) !important;
+        box-shadow: 0 0 18px rgba(220,38,38,0.35) !important;
     }
     </style>
 
-    <div class="login-panel">
-        <div class="login-logo">
-            <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
-        </div>
-        <div class="login-title">Iniciar sesión</div>
-        <div class="login-small">Sistema profesional de distribución de vinos</div>
+    <div class="login-logo">
+        <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
     </div>
+
+    <div class="login-title">Iniciar sesión</div>
+    <div class="login-small">Sistema profesional de distribución de vinos</div>
     """, unsafe_allow_html=True)
 
     usuario = st.text_input("Usuario", autocomplete="username")
