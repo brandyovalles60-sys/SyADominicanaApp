@@ -78,8 +78,46 @@ def login():
     </style>
 
     <div class="login-panel">
-        <div class="login-title">Iniciar sesión</div>
-        <div class="login-sub">Sistema profesional de distribución de vinos</div>
+        <div class="login-logo">
+        <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
+    </div>
+
+    <div class="login-title">
+        Iniciar sesión
+    </div>
+
+    <div class="login-small">
+        Sistema profesional de distribución de vinos
+    </div>
+                
+
+    .login-logo{
+        display:flex;
+        justify-content:center;
+        margin-bottom:20px;
+    }
+
+    .login-logo img{
+        width:170px;
+        filter:
+            drop-shadow(0 0 12px rgba(255,0,0,0.45))
+            drop-shadow(0 0 25px rgba(255,0,0,0.20));
+        animation: logoFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat{
+        0%{
+            transform:translateY(0px);
+        }
+
+        50%{
+            transform:translateY(-6px);
+        }
+
+        100%{
+            transform:translateY(0px);
+        }
+    }
     </div>
     """, unsafe_allow_html=True)
     
