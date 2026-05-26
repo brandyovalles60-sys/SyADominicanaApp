@@ -44,26 +44,49 @@ def login():
     header {visibility:hidden;}
 
     .block-container{
-        max-width:430px !important;
-        padding-top:8vh !important;
+        max-width:520px !important;
+        padding-top:6vh !important;
     }
 
     .stApp{
         background-image:
             linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.82)),
             url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
-        background-size:cover;
+        background-size:110%;
         background-position:center;
         background-attachment:fixed;
+        animation:fondoVino 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes fondoVino{
+        0%{ background-size:105%; background-position:center top; }
+        50%{ background-size:112%; background-position:center center; }
+        100%{ background-size:118%; background-position:center bottom; }
+    }
+
+    div[data-testid="stVerticalBlock"]{
+        background:rgba(5,8,15,.84);
+        border:1px solid rgba(255,0,0,.30);
+        border-radius:30px;
+        padding:34px 42px;
+        box-shadow:0 0 45px rgba(220,38,38,.32);
+        backdrop-filter:blur(14px);
     }
 
     .login-logo{
         text-align:center;
-        margin-bottom:15px;
+        margin-bottom:16px;
     }
 
     .login-logo img{
-        width:150px;
+        width:175px;
+        filter:drop-shadow(0 0 18px rgba(220,38,38,.45));
+        animation:logoFloat 4s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat{
+        0%,100%{transform:translateY(0);}
+        50%{transform:translateY(-6px);}
     }
 
     .login-title{
@@ -71,42 +94,38 @@ def login():
         color:white;
         font-size:38px;
         font-weight:900;
+        margin-bottom:6px;
     }
 
     .login-small{
         text-align:center;
         color:#d1d5db;
-        margin-bottom:25px;
-    }
-
-    div[data-testid="stVerticalBlock"]{
-        background:rgba(5,8,15,.82);
-        border:1px solid rgba(255,0,0,.28);
-        border-radius:28px;
-        padding:35px;
-        box-shadow:0 0 45px rgba(220,38,38,.30);
-        backdrop-filter:blur(14px);
+        font-size:16px;
+        margin-bottom:22px;
     }
 
     div[data-testid="stTextInput"] input{
         background:#0b1220 !important;
         color:white !important;
+        border:1px solid rgba(255,255,255,.16) !important;
         border-radius:14px !important;
-        height:48px !important;
+        height:50px !important;
     }
 
     .stButton > button{
-        background:#0b1220 !important;
+        background:rgba(11,18,32,.94) !important;
         color:white !important;
         border:1px solid rgba(220,38,38,.45) !important;
         border-radius:14px !important;
-        height:46px !important;
+        height:48px !important;
         font-weight:800 !important;
+        transition:.25s ease-in-out;
     }
 
     .stButton > button:hover{
-        background:#3b0a0a !important;
-        box-shadow:0 0 18px rgba(220,38,38,.35) !important;
+        transform:translateY(-2px);
+        background:linear-gradient(135deg,#220000,#111827) !important;
+        box-shadow:0 0 20px rgba(220,38,38,.38) !important;
     }
     </style>
 
