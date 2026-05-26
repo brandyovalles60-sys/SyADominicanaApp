@@ -137,7 +137,7 @@ def login():
     <div class="login-small">Sistema profesional de distribución de vinos</div>
     """, unsafe_allow_html=True)
 
-    usuario = st.text_input("Usuario", autocomplete="username")
+    usuario = st.text_input("Nombre de usuario", autocomplete="username")
     password = st.text_input("Contraseña", type="password", autocomplete="current-password")
 
     if st.button("🚀 Entrar al sistema", width="stretch"):
