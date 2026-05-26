@@ -41,97 +41,293 @@ def login():
 
     st.markdown("""
     <style>
-    header {visibility:hidden;}
 
-    .block-container {
-        max-width: 520px !important;
-        padding-top: 8vh !important;
+    /* =========================
+    OCULTAR STREAMLIT
+    ========================= */
+
+    header {
+        visibility: hidden;
     }
 
-    .stApp {
+    .block-container{
+        padding:0 !important;
+        max-width:100% !important;
+    }
+
+    /* =========================
+    FONDO ANIMADO
+    ========================= */
+
+    .stApp{
+
         background-image:
-            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.78)),
+            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.82)),
             url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
+
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         background-attachment: fixed;
+
+        animation:bgMove 18s ease-in-out infinite alternate;
     }
 
-    /* TODO EL LOGIN COMO UN SOLO BLOQUE */
-    div[data-testid="stVerticalBlock"] {
-        background: rgba(5, 8, 15, 0.78);
-        border: 1px solid rgba(255, 0, 0, 0.28);
-        border-radius: 28px;
-        padding: 35px 40px;
-        box-shadow: 0 0 45px rgba(220, 38, 38, 0.30);
-        backdrop-filter: blur(14px);
+    /* MOVIMIENTO SUAVE DEL FONDO */
+
+    @keyframes bgMove{
+
+        0%{
+            background-position:center top;
+            transform:scale(1);
+        }
+
+        50%{
+            background-position:center center;
+            transform:scale(1.03);
+        }
+
+        100%{
+            background-position:center bottom;
+            transform:scale(1.05);
+        }
     }
 
-    /* LOGO */
-    .login-logo {
-        text-align: center;
-        margin-bottom: 18px;
+    /* EFECTO ROJO PREMIUM */
+
+    .stApp::before{
+
+        content:"";
+        position:fixed;
+        inset:0;
+
+        background:
+            radial-gradient(circle at 20% 30%, rgba(255,0,0,0.10), transparent 35%),
+            radial-gradient(circle at 80% 70%, rgba(255,0,0,0.08), transparent 35%);
+
+        animation:glowMove 10s ease-in-out infinite alternate;
+
+        pointer-events:none;
     }
 
-    .login-logo img {
-        width: 165px;
-        filter: drop-shadow(0 0 16px rgba(220,38,38,.45));
+    @keyframes glowMove{
+
+        0%{
+            transform:translateY(0px);
+            opacity:.6;
+        }
+
+        100%{
+            transform:translateY(-20px);
+            opacity:1;
+        }
     }
 
-    /* TEXTO */
-    .login-title {
-        text-align: center;
-        color: white;
-        font-size: 36px;
-        font-weight: 900;
-        margin-bottom: 5px;
+    /* =========================
+    LOGIN PANEL
+    ========================= */
+
+    .login-panel{
+
+        max-width:430px;
+
+        margin:8vh auto;
+
+        padding:38px;
+
+        border-radius:30px;
+
+        background:rgba(5,8,15,0.82);
+
+        border:1px solid rgba(255,0,0,0.25);
+
+        backdrop-filter:blur(14px);
+
+        box-shadow:
+            0 0 40px rgba(255,0,0,0.18),
+            0 0 80px rgba(255,0,0,0.08);
+
+        animation:fadeIn 1s ease;
     }
 
-    .login-small {
-        text-align: center;
-        color: #d1d5db;
-        font-size: 15px;
-        margin-bottom: 25px;
+    /* =========================
+    LOGO
+    ========================= */
+
+    .login-logo{
+
+        display:flex;
+        justify-content:center;
+
+        margin-bottom:18px;
     }
 
-    /* INPUTS */
-    div[data-testid="stTextInput"] input {
-        background: rgba(10, 15, 25, 0.92) !important;
-        border: 1px solid rgba(255,255,255,0.18) !important;
-        border-radius: 14px !important;
-        color: white !important;
-        height: 48px !important;
+    .login-logo img{
+
+        width:170px;
+
+        filter:
+            drop-shadow(0 0 15px rgba(255,0,0,0.45))
+            drop-shadow(0 0 35px rgba(255,0,0,0.20));
+
+        animation:logoFloat 4s ease-in-out infinite;
     }
 
-    div[data-testid="stTextInput"] input:focus {
-        border-color: rgba(220,38,38,0.85) !important;
-        box-shadow: 0 0 14px rgba(220,38,38,0.35) !important;
+    @keyframes logoFloat{
+
+        0%{
+            transform:translateY(0px);
+        }
+
+        50%{
+            transform:translateY(-6px);
+        }
+
+        100%{
+            transform:translateY(0px);
+        }
     }
 
-    /* BOTONES */
-    .stButton > button {
-        background: rgba(10, 15, 25, 0.92) !important;
-        color: white !important;
-        border: 1px solid rgba(220,38,38,0.42) !important;
-        border-radius: 14px !important;
-        height: 46px !important;
-        font-weight: 800 !important;
+    /* =========================
+    TITULOS
+    ========================= */
+
+    .login-title{
+
+        text-align:center;
+
+        color:white;
+
+        font-size:42px;
+
+        font-weight:900;
+
+        margin-top:10px;
     }
 
-    .stButton > button:hover {
-        background: linear-gradient(135deg, #330000, #7f1d1d) !important;
-        transform: translateY(-2px);
-        box-shadow: 0 0 18px rgba(220,38,38,0.35) !important;
+    .login-small{
+
+        text-align:center;
+
+        color:#cbd5e1;
+
+        font-size:15px;
+
+        margin-bottom:28px;
     }
+
+    /* =========================
+    INPUTS
+    ========================= */
+
+    .stTextInput > div > div{
+
+        background:rgba(10,15,25,0.92);
+
+        border:1px solid rgba(255,255,255,0.08);
+
+        border-radius:14px;
+
+        transition:0.3s;
+
+        box-shadow:none;
+    }
+
+    .stTextInput > div > div:hover{
+
+        border:1px solid rgba(255,0,0,0.30);
+
+        box-shadow:0 0 18px rgba(255,0,0,0.10);
+    }
+
+    .stTextInput input{
+
+        color:white !important;
+
+        font-size:16px;
+    }
+
+    /* =========================
+    BOTONES
+    ========================= */
+
+    .stButton > button{
+
+        width:100%;
+
+        border-radius:14px;
+
+        height:52px;
+
+        border:none;
+
+        font-size:16px;
+
+        font-weight:700;
+
+        transition:0.3s;
+
+        margin-top:10px;
+
+        background:linear-gradient(135deg,#0b1220,#111827);
+
+        color:white;
+
+        border:1px solid rgba(255,0,0,0.20);
+    }
+
+    /* BOTON PRINCIPAL */
+
+    .stButton > button:hover{
+
+        transform:translateY(-2px);
+
+        border:1px solid rgba(255,0,0,0.45);
+
+        box-shadow:
+            0 0 20px rgba(255,0,0,0.18),
+            0 0 35px rgba(255,0,0,0.10);
+
+        background:linear-gradient(135deg,#111827,#1f2937);
+    }
+
+    /* =========================
+    ANIMACION PANEL
+    ========================= */
+
+    @keyframes fadeIn{
+
+        from{
+            opacity:0;
+            transform:translateY(20px);
+        }
+
+        to{
+            opacity:1;
+            transform:translateY(0px);
+        }
+    }
+
     </style>
 
-    <div class="login-logo">
-        <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
+    <div class="login-panel">
+
+        <div class="login-logo">
+            <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
+        </div>
+
+        <div class="login-title">
+            Iniciar sesión
+        </div>
+
+        <div class="login-small">
+            Sistema profesional de distribución de vinos
+        </div>
+
     </div>
 
-    <div class="login-title">Iniciar sesión</div>
-    <div class="login-small">Sistema profesional de distribución de vinos</div>
     """, unsafe_allow_html=True)
+
 
     usuario = st.text_input("Usuario", autocomplete="username")
     password = st.text_input("Contraseña", type="password", autocomplete="current-password")
