@@ -38,67 +38,56 @@ conn = conectar()
 
 # LOGIN
 def login():
-
     st.markdown("""
     <style>
+    header {visibility:hidden;}
+    .block-container {padding:0 !important; max-width:100% !important;}
+
     .stApp {
-        background: radial-gradient(circle at top, #5b0000 0%, #100000 35%, #000000 100%);
+        background-image:
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.70)),
+            url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
     }
 
-    .login-brand {
+    .login-panel {
+        max-width: 520px;
+        margin: 13vh auto 30px auto;
+        padding: 40px;
+        border-radius: 28px;
+        background: rgba(5, 8, 15, 0.78);
+        border: 1px solid rgba(255, 0, 0, 0.35);
+        box-shadow: 0 0 45px rgba(220, 38, 38, 0.35);
+        backdrop-filter: blur(12px);
+    }
+
+    .login-title {
         text-align:center;
-        margin-top:40px;
-        margin-bottom:25px;
-    }
-
-    .login-brand h1 {
-        font-size:68px;
-        font-weight:900;
-        color:#c4121a;
-        letter-spacing:-2px;
-        margin-bottom:0;
-    }
-
-    .login-brand h2 {
-        font-size:34px;
-        font-weight:900;
         color:white;
-        letter-spacing:2px;
-        margin-top:-8px;
+        font-size:42px;
+        font-weight:900;
     }
 
+    .login-sub {
+        text-align:center;
+        color:#d1d5db;
+        margin-bottom:20px;
+    }
+    </style>
+
+    <div class="login-panel">
+        <div class="login-title">Iniciar sesión</div>
+        <div class="login-sub">Sistema profesional de distribución de vinos</div>
+    </div>
+    """, unsafe_allow_html=True)
+    
    
 
     
 
     
-    </style>
-    <div class="login-brand">
-        <h1>SyA</h1>
-        <h2>DOMINICANA</h2>
-    </div>
-
-    <div class="login-bg"></div>
-
-    <style>
-
-    .login-bg{
-        background-image: url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        width: 100%;
-        height: 100vh;
-
-        border-radius: 0;
-        margin: 0;
-        border: none;
-        box-shadow: none;
-    }
-
-    </style>
-    """, unsafe_allow_html=True)
    
 
     
@@ -151,6 +140,9 @@ def login():
     if st.button("📝 Registrarme como empleado", width="stretch"):
         st.session_state["modo_registro"] = True
         st.rerun()
+
+
+    
 
    
     
