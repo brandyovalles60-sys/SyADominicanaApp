@@ -38,95 +38,93 @@ conn = conectar()
 
 # LOGIN
 def login():
+
     st.markdown("""
     <style>
     header {visibility:hidden;}
 
     .block-container {
-        padding:0 !important;
-        max-width:100% !important;
+        padding-top: 0 !important;
+        max-width: 720px !important;
     }
 
     .stApp {
         background-image:
-            linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.75)),
+            linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.78)),
             url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
 
-    /* PANEL */
     .login-panel {
-        max-width: 540px;
-        margin: 8vh auto 25px auto;
-        padding: 38px 42px;
-        border-radius: 30px;
+        max-width: 520px;
+        margin: 10vh auto 25px auto;
+        padding: 32px;
+        border-radius: 28px;
         background: rgba(5, 8, 15, 0.82);
-        border: 1px solid rgba(255, 0, 0, 0.35);
-        box-shadow: 0 0 50px rgba(220, 38, 38, 0.35);
+        border: 1px solid rgba(160, 20, 20, 0.45);
+        box-shadow: 0 0 45px rgba(160, 20, 20, 0.28);
         backdrop-filter: blur(14px);
-    }
-
-    /* LOGO */
-    .login-logo {
-        display:flex;
-        justify-content:center;
-        margin-bottom:18px;
+        text-align: center;
     }
 
     .login-logo img {
-        width:190px;
-        filter:
-            drop-shadow(0 0 12px rgba(255,0,0,0.45))
-            drop-shadow(0 0 25px rgba(255,0,0,0.20));
+        width: 170px;
+        margin-bottom: 22px;
+        filter: drop-shadow(0 0 18px rgba(180,0,0,0.45));
         animation: logoFloat 4s ease-in-out infinite;
     }
 
     @keyframes logoFloat {
-        0%, 100% { transform:translateY(0px); }
-        50% { transform:translateY(-6px); }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
     }
 
-    /* TEXTO */
     .login-title {
-        text-align:center;
-        color:white;
-        font-size:42px;
-        font-weight:900;
-        margin-bottom:8px;
+        color: white;
+        font-size: 34px;
+        font-weight: 900;
+        margin-bottom: 6px;
     }
 
     .login-small {
-        text-align:center;
-        color:#d1d5db;
-        margin-bottom:5px;
-        font-size:17px;
+        color: #d1d5db;
+        font-size: 16px;
     }
 
-    /* INPUTS */
+    div[data-testid="stTextInput"] {
+        max-width: 520px;
+        margin: auto;
+    }
+
     div[data-testid="stTextInput"] input {
-        background: rgba(5, 8, 15, 0.85) !important;
-        border: 1px solid rgba(255, 0, 0, 0.35) !important;
-        border-radius: 16px !important;
+        background: rgba(8, 12, 20, 0.88) !important;
+        border: 1px solid rgba(120, 120, 140, 0.35) !important;
+        border-radius: 14px !important;
         color: white !important;
-        height: 52px !important;
+        height: 48px !important;
     }
 
-    /* BOTONES */
+    .stButton {
+        max-width: 520px;
+        margin: auto;
+    }
+
     .stButton > button {
-        background: linear-gradient(135deg, #7f0000, #dc2626) !important;
+        background: rgba(8, 12, 20, 0.88) !important;
         color: white !important;
-        border: 1px solid rgba(255, 80, 80, 0.55) !important;
-        border-radius: 16px !important;
-        height: 50px !important;
+        border: 1px solid rgba(180, 40, 40, 0.45) !important;
+        border-radius: 14px !important;
+        height: 46px !important;
         font-weight: 800 !important;
-        box-shadow: 0 0 20px rgba(220, 38, 38, 0.25) !important;
+        transition: all .25s ease-in-out;
     }
 
     .stButton > button:hover {
+        background: rgba(90, 10, 10, 0.92) !important;
         transform: translateY(-2px);
-        box-shadow: 0 0 28px rgba(220, 38, 38, 0.50) !important;
+        box-shadow: 0 0 22px rgba(180, 40, 40, 0.35) !important;
     }
     </style>
 
@@ -134,28 +132,15 @@ def login():
         <div class="login-logo">
             <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
         </div>
-
         <div class="login-title">Iniciar sesión</div>
         <div class="login-small">Sistema profesional de distribución de vinos</div>
     </div>
     """, unsafe_allow_html=True)
-    
-   
-
-    
-
-    
-   
-
-    
-
-    
 
     usuario = st.text_input("Usuario", autocomplete="username")
     password = st.text_input("Contraseña", type="password", autocomplete="current-password")
 
     if st.button("🚀 Entrar al sistema", width="stretch"):
-
         cursor = conn.cursor()
         cursor.execute("""
             SELECT username, password, rol, activo
@@ -165,34 +150,22 @@ def login():
 
         user = cursor.fetchone()
 
-        
-
         if user:
-            db_password = user[1]
-            db_rol = user[2]
-
-            
             activo = user[3]
+            db_rol = user[2]
 
             if not activo and db_rol not in ["admin", "jefe"]:
                 st.error("Tu cuenta todavía no ha sido aprobada.")
                 return
 
-
             if bcrypt.checkpw(password.encode(), user[1].encode()):
-
                 st.session_state["login"] = True
-
                 st.session_state["usuario"] = str(user[0]).strip()
-
                 st.session_state["rol"] = str(user[2]).strip().lower()
-
                 st.success("Bienvenido al sistema")
                 st.rerun()
-
             else:
                 st.error("Contraseña incorrecta")
-            
 
     if st.button("📝 Registrarme como empleado", width="stretch"):
         st.session_state["modo_registro"] = True
