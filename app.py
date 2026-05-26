@@ -41,83 +41,102 @@ def login():
     st.markdown("""
     <style>
     header {visibility:hidden;}
-    .block-container {padding:0 !important; max-width:100% !important;}
+
+    .block-container {
+        padding:0 !important;
+        max-width:100% !important;
+    }
 
     .stApp {
         background-image:
-            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.70)),
+            linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.75)),
             url("https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/login-bg.png");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
     }
 
+    /* PANEL */
     .login-panel {
-        max-width: 520px;
-        margin: 13vh auto 30px auto;
-        padding: 40px;
-        border-radius: 28px;
-        background: rgba(5, 8, 15, 0.78);
+        max-width: 540px;
+        margin: 8vh auto 25px auto;
+        padding: 38px 42px;
+        border-radius: 30px;
+        background: rgba(5, 8, 15, 0.82);
         border: 1px solid rgba(255, 0, 0, 0.35);
-        box-shadow: 0 0 45px rgba(220, 38, 38, 0.35);
-        backdrop-filter: blur(12px);
+        box-shadow: 0 0 50px rgba(220, 38, 38, 0.35);
+        backdrop-filter: blur(14px);
     }
 
-    .login-title {
-        text-align:center;
-        color:white;
-        font-size:42px;
-        font-weight:900;
-    }
-
-    .login-sub {
-        text-align:center;
-        color:#d1d5db;
-        margin-bottom:20px;
-    }
-    </style>
-
-    <div class="login-panel">
-        <div class="login-logo">
-        <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
-    </div>
-
-    <div class="login-title">
-        Iniciar sesión
-    </div>
-
-    <div class="login-small">
-        Sistema profesional de distribución de vinos
-    </div>
-                
-
-    .login-logo{
+    /* LOGO */
+    .login-logo {
         display:flex;
         justify-content:center;
-        margin-bottom:20px;
+        margin-bottom:18px;
     }
 
-    .login-logo img{
-        width:170px;
+    .login-logo img {
+        width:190px;
         filter:
             drop-shadow(0 0 12px rgba(255,0,0,0.45))
             drop-shadow(0 0 25px rgba(255,0,0,0.20));
         animation: logoFloat 4s ease-in-out infinite;
     }
 
-    @keyframes logoFloat{
-        0%{
-            transform:translateY(0px);
-        }
-
-        50%{
-            transform:translateY(-6px);
-        }
-
-        100%{
-            transform:translateY(0px);
-        }
+    @keyframes logoFloat {
+        0%, 100% { transform:translateY(0px); }
+        50% { transform:translateY(-6px); }
     }
+
+    /* TEXTO */
+    .login-title {
+        text-align:center;
+        color:white;
+        font-size:42px;
+        font-weight:900;
+        margin-bottom:8px;
+    }
+
+    .login-small {
+        text-align:center;
+        color:#d1d5db;
+        margin-bottom:5px;
+        font-size:17px;
+    }
+
+    /* INPUTS */
+    div[data-testid="stTextInput"] input {
+        background: rgba(5, 8, 15, 0.85) !important;
+        border: 1px solid rgba(255, 0, 0, 0.35) !important;
+        border-radius: 16px !important;
+        color: white !important;
+        height: 52px !important;
+    }
+
+    /* BOTONES */
+    .stButton > button {
+        background: linear-gradient(135deg, #7f0000, #dc2626) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 80, 80, 0.55) !important;
+        border-radius: 16px !important;
+        height: 50px !important;
+        font-weight: 800 !important;
+        box-shadow: 0 0 20px rgba(220, 38, 38, 0.25) !important;
+    }
+
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 28px rgba(220, 38, 38, 0.50) !important;
+    }
+    </style>
+
+    <div class="login-panel">
+        <div class="login-logo">
+            <img src="https://raw.githubusercontent.com/brandyovalles60-sys/SyADominicanaApp/main/assets/sya-logo-premium.png">
+        </div>
+
+        <div class="login-title">Iniciar sesión</div>
+        <div class="login-small">Sistema profesional de distribución de vinos</div>
     </div>
     """, unsafe_allow_html=True)
     
