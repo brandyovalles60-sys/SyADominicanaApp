@@ -23,6 +23,42 @@ from modules.finanzas import pagina_finanzas
 from modules.historial_clientes import pagina_historial_clientes
 from modules.idiomas import IDIOMAS
 from modules.auditoria import pagina_auditoria
+from datetime import datetime
+
+
+def generar_id(conn, tabla, columna, prefijo):
+    cur = conn.cursor()
+    cur.execute(f"SELECT {columna} FROM {tabla} ORDER BY id DESC LIMIT 1")
+    ultimo = cur.fetchone()
+
+    if ultimo and ultimo[0]:
+        numero = int(ultimo[0].split("-")[-1]) + 1
+    else:
+        numero = 1
+
+    return f"{prefijo}-{numero:06d}"
+
+
+def verificar_pin(pin_ingresado, pin_hash):
+    if not pin_ingresado or not pin_hash:
+        return False
+
+    if isinstance(pin_hash, str):
+        pin_hash = pin_hash.encode("utf-8")
+
+    return bcrypt.checkpw(
+        pin_ingresado.encode("utf-8"),
+        pin_hash
+    )
+
+
+def registrar_auditoria(conn, usuario, rol, modulo, accion, detalle):
+    cur = conn.cursor()
+    cur.execute("""
+        INSERT INTO auditoria (usuario, rol, modulo, accion, detalle, fecha)
+        VALUES (%s, %s, %s, %s, %s, NOW())
+    """, (usuario, rol, modulo, accion, detalle))
+    conn.commit()
 
 
 # CONFIGURACIÓN
